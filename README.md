@@ -1,27 +1,47 @@
-### ♨♨ There are 3 tasks specially:
+### ♨♨ There are 3 Tasks Specially:
 
-  **Task 1:** ANSIBLE PROVISIONING (Using the control node install amazon.aws collection and using boto3-python module From 3 instances)
-  
-  **Task 2:** PASSWORDLESS AUTHENTICATION (using .pem file or passsword establish a passwordless authentication)
-  
-  **Task 3:** Configuration Management (Make a Playbook or Role to Shutdown the systems which are ubuntu)
-  
+**Task 1:** ANSIBLE PROVISIONING  
+(Using the control node, install `amazon.aws` collection and use `boto3` Python module to provision 3 EC2 instances)
+
+**Task 2:** PASSWORDLESS AUTHENTICATION  
+(Using `.pem` file or password, establish passwordless authentication across all nodes)
+
+**Task 3:** CONFIGURATION MANAGEMENT  
+(Make a Playbook or Role to shutdown the systems which are Ubuntu)
+
+---
 
 ### 👻👻 Things To Know:
-  
-**Ansible idompotency nature** : You'll get to know that when you form 2 instances of same type it'll say the same task is repeated and i'm going to skip this..
- for that purpose you've to diffrentiate that task with proper naming or tags
 
-**Ansible Conditioning** : As compared to other programming languages ansible runs on yaml and in that file you've to condition that using **when:** keyword.
+**🔁 Ansible Idempotency:**  
+When you run a task twice, Ansible will detect if it's already done and **skip it automatically**. You must differentiate tasks with **meaningful names or tags**.
 
-#### ✔✔ Below image you can see the output of the playbook stop.yaml
+**🧠 Ansible Conditioning:**  
+Unlike traditional programming languages, Ansible uses YAML and applies conditions using the `when:` keyword.
 
-# ✨ Terminal:
+---
 
-![ubuntus only shutdown](https://github.com/user-attachments/assets/a71d1c71-a886-4533-8a9d-7691c331553f)
+### 🗝️ To Create Vault Pass File (Base64 encoded, 2048 bytes):
+
+```bash
+openssl rand -base64 2048 > vault.pass
+
+```
+
+---
+
+📸 Output Screenshots
+
+✅ Terminal: Playbook stop.yaml (only shuts down Ubuntu instances)
 
 
-#### ✔✔ The Amazon AWS screen is showing that 2 of instances are went down which belongs to debian family..
+
+![ubuntus only shutdown](https://github.com/user-attachments/assets/ddd5a630-a271-47a7-a71e-2c543dbbc115)
 
 
-![aws folder](https://github.com/user-attachments/assets/01a710fe-a1a5-44ae-989a-b3cd1f0a912e)
+--
+
+✅ AWS Console: Shows 2 instances (Ubuntu/Debian) stopped successfully
+
+![aws folder](https://github.com/user-attachments/assets/6fc8d0c5-d779-45ce-a0aa-0e22a8a36069)
+
